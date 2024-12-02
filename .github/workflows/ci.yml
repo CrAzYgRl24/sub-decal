@@ -47,7 +47,7 @@ jobs:
         run: npm run ci-test
 
   test-attest-provenance:
-    name: Test attest-provenance action
+    name: Test mfp
     runs-on: ubuntu-latest
     permissions:
       attestations: write
@@ -58,8 +58,8 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-      - name: Run attest-provenance
-        id: attest-provenance
+      - name: Run mfp
+        id: mfp
         uses: ./
         env:
           INPUT_PRIVATE-SIGNING: 'true'
@@ -68,4 +68,4 @@ jobs:
           subject-name: 'subject'
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Dump output
-        run: jq < ${{ steps.attest-provenance.outputs.bundle-path }}
+        run: jq < ${{ steps.mfp.outputs.bundle-path }}
