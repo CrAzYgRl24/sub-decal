@@ -1,4 +1,4 @@
-name: mfp
+name: sub-decal
 description: 'Generate provenance attestations for build artifacts'
 author: 'GitHub'
 branding:
